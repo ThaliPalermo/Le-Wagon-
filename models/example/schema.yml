@@ -1,19 +1,23 @@
 version: 2
 sources:
-  - name: dtp_tpalermo
+  - name: raw
+    schema: dbt_tpalermo
     description: dataset for demo class
     tables:
-      - name: raw_gz_sales
+      - name: sales
+        identifier: raw_gz_sales
         description: sales of gz
 
-  - name: dtp_tpalermo
-    description: dataset for demo class
-    tables:
-      - name: raw_gz_product
+      - name: product
+        identifier: raw_gz_product
         description: producs of gz
 
-  - name: dtp_tpalermo
-    description: dataset for demo class
-    tables:
-      - name: raw_gz_ship
+      - name: ship
+        identifier: raw_gz_ship
         description: ship of gz
+
+models:
+  - name: stg_raw__sales
+  - name: stg_raw__product
+  - name: stg_raw__ship
+  
