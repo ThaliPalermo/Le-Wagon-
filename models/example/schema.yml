@@ -7,6 +7,14 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: sales of gz
+        freshness:
+          warn_after:
+            count: 89
+            period: day
+          error_after:
+            count: 90
+            period: day
+        loaded_at_field: CAST (date_date as TIMESTAMP)
 
       - name: product
         identifier: raw_gz_product
@@ -20,4 +28,3 @@ models:
   - name: stg_raw__sales
   - name: stg_raw__product
   - name: stg_raw__ship
-  
